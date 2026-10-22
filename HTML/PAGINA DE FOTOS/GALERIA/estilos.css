@@ -1,0 +1,32 @@
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+form{
+    margin-bottom:30px;
+}
+
+input,select,button{
+    display:block;
+    margin:10px 0;
+    padding:10px;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+}
+
+.foto{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+.foto img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}

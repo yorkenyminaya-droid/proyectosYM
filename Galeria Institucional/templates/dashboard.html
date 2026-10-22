@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+
+    <!-- BIENVENIDA -->
+
+    <div class="card shadow border-0 mb-5 bienvenida-card">
+
+    <div class="card-body text-center position-relative">
+
+        <img
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            style="width:200px;"
+            class="mb-3">
+
+        <h5
+        class="fw-semibold text-uppercase"
+        style="
+        color:rgb(0,153,74);
+        letter-spacing:2px;
+        line-height:1.6;">
+
+            INSTITUTO SUPERIOR ESPECIALIZADO<br>
+            DE ESTUDIOS PENITENCIARIOS
+
+        </h4>
+
+        <h1
+    class="fw-bold"
+    style="
+        font-size:72px;
+        color:rgb(130,169,74);
+        letter-spacing:10px;
+        text-shadow:2px 2px 6px rgba(0,0,0,.15);">
+
+            ISEEPENC
+
+        </h1>
+
+        <h5
+            class="text-secondary">
+
+            Sistema de Gestión de Archivos Fotográfico Institucional
+
+        </h5>
+
+        <h2
+            class="fw-bold mt-3"
+            style="color:rgb(0,153,74);">
+
+            SIGAFI
+
+            <hr
+        style="
+        width:250px;
+        margin:25px auto;
+        border:2px solid rgb(130,169,74);
+        opacity:1;">
+
+        </h2>
+
+        <span class="badge bg-success fs-6 mt-2">
+
+            Versión 1.0
+
+        </span>
+        <h5
+    class="fw-bold mt-4"
+    style="color:rgb(0,153,74); letter-spacing:1px; line-height:1.6;">
+
+    "EDUCAMOS PARA LA REINSERCIÓN Y LA PAZ SOCIAL"<br> 
+    
+
+</h4>
+
+    </div>
+
+</div>
+
+<div class="text-center mb-4">
+
+    <h3
+    class="fw-bold"
+    style="color:rgb(0,153,74);">
+
+        Estadísticas Generales
+
+    </h3>
+
+    <p class="text-muted">
+
+        Resumen del archivo fotográfico institucional.
+
+    </p>
+
+</div>
+    <!-- TARJETAS -->
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-folder-fill text-success fs-1"></i>
+
+                    <h5 class="mt-3">
+
+                        Actividades
+
+                    </h5>
+
+                    <h1 class="fw-bold">
+
+                        {{ datos.actividades }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-camera-fill text-success fs-1"></i>
+
+                    <h5 class="mt-3">
+
+                        Fotografías
+
+                    </h5>
+
+                    <h1 class="fw-bold">
+
+                        {{ datos.fotos }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-calendar-event-fill text-success fs-1"></i>
+
+                    <h5 class="mt-3">
+
+                        Años registrados
+
+                    </h5>
+
+                    <h1 class="fw-bold">
+
+                        {{ datos.anios }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVIDADES RECIENTES -->
+
+    <div class="card shadow border-0 mt-5">
+
+        <div class="card-header bg-success text-white">
+
+            <h5 class="mb-0">
+
+                <i class="bi bi-clock-history"></i>
+
+                Actividades recientes
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table tabla-actividades align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Fecha</th>
+                        <th>Actividad</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for actividad in datos.recientes %}
+
+                    <tr>
+
+                        <td>
+
+                            {{ actividad.fecha.strftime("%d/%m/%Y") }}
+
+                        </td>
+
+                        <td>
+
+                            {{ actividad.nombre }}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIE -->
+
+    <div class="text-center mt-5 text-secondary">
+
+        <p>
+
+            <strong>SIGAFI v1.0</strong>
+
+            <br>
+
+            Preservando la memoria fotográfica institucional.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

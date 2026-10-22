@@ -1,0 +1,287 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#eef2f7;
+
+    font-family:Segoe UI;
+
+}
+
+/* CONTENEDOR */
+
+.wrapper{
+
+    display:flex;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+    width:260px;
+
+    height:100vh;
+
+    background:#0d6efd;
+
+    color:white;
+
+    position:fixed;
+
+    padding:25px;
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.sidebar li:hover{
+
+    background:white;
+
+    color:#0d6efd;
+
+}
+
+/* CONTENIDO */
+
+.contenido{
+
+    margin-left:260px;
+
+    width:100%;
+
+}
+
+/* TOPBAR */
+
+.topbar{
+
+    background:white;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+
+}
+
+.pagina{
+
+    padding:30px;
+
+}
+
+/* TARJETAS */
+
+.indicador{
+
+    border:none;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.indicador h5{
+
+    color:gray;
+
+}
+
+.indicador h1{
+
+    margin-top:15px;
+
+    font-size:40px;
+
+}
+.menu{
+    list-style:none;
+    padding:0;
+}
+
+.menu li{
+    margin-bottom:10px;
+}
+
+.menu a{
+    display:block;
+    padding:12px 15px;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:white;
+    color:#0d6efd;
+}
+
+.menu a i{
+    margin-right:10px;
+}
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0 !important;
+
+}
+
+.form-control{
+
+    border-radius:10px;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+    padding:10px 30px;
+
+}
+/* ==========================
+   EFECTO TARJETAS
+========================== */
+
+.card{
+
+    transition: all .3s ease;
+
+}
+
+.card:hover{
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.20);
+
+}
+
+/*======================================
+BOTONES DE LA GALERÍA
+======================================*/
+
+.btn-outline-success,
+.btn-outline-secondary,
+.btn-outline-danger{
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    transition:all .25s ease;
+
+}
+
+.btn-outline-success:hover{
+
+    background:rgb(0,153,74);
+
+    border-color:rgb(0,153,74);
+
+}
+
+.btn-outline-secondary:hover{
+
+    background:rgb(130,169,74);
+
+    border-color:rgb(130,169,74);
+
+    color:white;
+
+}
+
+.btn-outline-danger:hover{
+
+    background:#b02a37;
+
+}
+
+/*=========================================
+    TARJETA DE BIENVENIDA DASHBOARD
+==========================================*/
+
+.bienvenida-card{
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius:18px;
+
+}
+
+.bienvenida-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:url("../img/fondo.jpg") center center no-repeat;
+
+    background-size:cover;
+
+    opacity:.08;
+
+    z-index:0;
+
+}
+
+.bienvenida-card .card-body{
+
+    position:relative;
+
+    z-index:1;
+
+}

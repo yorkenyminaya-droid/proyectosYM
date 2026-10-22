@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h3>
+                <i class="bi bi-cloud-upload"></i>
+                Subir Fotografías
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Fecha
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            name="fecha"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <label class="form-label">
+                            Actividad
+                        </label>
+
+                       <input
+                            type="text"
+                            class="form-control"
+                            name="actividad"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <label class="form-label">
+
+                    Seleccionar fotografías
+
+                </label>
+
+                <input
+                    type="file"
+                     class="form-control"
+                     name="fotos"
+                    multiple
+                    required>
+                <br>
+
+                <button
+                    class="btn btn-primary">
+
+                    <i class="bi bi-save"></i>
+
+                    Guardar
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

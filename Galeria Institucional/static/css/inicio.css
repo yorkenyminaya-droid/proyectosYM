@@ -1,0 +1,273 @@
+/* ==========================
+   FONDO
+========================== */
+
+body{
+
+    margin:0;
+    padding:0;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background-image:
+    linear-gradient(
+        rgba(0,153,74,.65),
+        rgba(130,169,74,.65)
+    ),
+    url("../img/fondo.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================
+   CAPA PRINCIPAL
+========================== */
+
+.overlay{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* ==========================
+   PANEL CENTRAL
+========================== */
+
+.contenido{
+
+    width:650px;
+
+    text-align:center;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+    box-shadow:0px 15px 40px rgba(0,0,0,.35);
+
+    animation:entrada 1.2s ease;
+
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo{
+
+    width:170px;
+
+    margin-bottom:10px;
+
+}
+
+
+/* ==========================
+   ISEEPENC
+========================== */
+
+.institucion{
+
+    color:white;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+    letter-spacing:3px;
+
+}
+
+
+/* ==========================
+   SIGAFI
+========================== */
+
+.titulo{
+
+    color:white;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================
+   TEXTO
+========================== */
+
+.descripcion{
+
+    color:white;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+
+/* ==========================
+   BOTÓN
+========================== */
+
+.btn-iniciar{
+
+    display:inline-block;
+
+    padding:15px 45px;
+
+    background:#00994A;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.30);
+
+}
+
+.btn-iniciar:hover{
+
+    background:#82A94A;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.35);
+
+}
+
+
+/* ==========================
+   ANIMACIÓN
+========================== */
+
+@keyframes entrada{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================
+   CELULARES
+========================== */
+
+@media(max-width:768px){
+
+.contenido{
+
+    width:92%;
+
+    padding:35px;
+
+}
+
+.logo{
+
+    width:120px;
+
+}
+
+.titulo{
+
+    font-size:40px;
+
+}
+
+.institucion{
+
+    font-size:22px;
+
+}
+
+.descripcion{
+
+    font-size:18px;
+
+}
+
+}
+
+
+
+/* ==========================
+   PIE DE PÁGINA
+========================== */
+
+.pie{
+
+    position:absolute;
+
+    bottom:15px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+    text-shadow:1px 1px 4px rgba(0,0,0,.5);
+
+}

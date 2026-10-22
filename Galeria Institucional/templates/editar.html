@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container mt-4">
+
+    <h2>Editar actividad</h2>
+
+    <hr>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label>Nombre</label>
+
+            <input
+    type="text"
+    class="form-control"
+    name="nombre"
+    value="{{ actividad.nombre }}"
+    required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Fecha</label>
+
+            <input
+                type="date"
+                class="form-control"
+                value="{{ actividad.fecha }}">
+
+        </div>
+
+        <button
+            class="btn btn-success">
+
+            Guardar cambios
+
+        </button>
+
+        <a
+            href="{{ url_for('gallery.galeria') }}"
+            class="btn btn-secondary">
+
+            Cancelar
+
+        </a>
+
+    <form method="POST">
+
+</div>
+
+{% endblock %}

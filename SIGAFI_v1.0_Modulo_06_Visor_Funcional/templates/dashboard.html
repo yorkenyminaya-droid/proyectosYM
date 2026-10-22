@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container">
+
+    <h2 class="mb-4">
+        Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h5>Actividades</h5>
+
+                    <h1>
+
+                        {{ datos.actividades }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h5>Fotografías</h5>
+
+                    <h1>
+
+                        {{ datos.fotos }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h5>Años registrados</h5>
+
+                    <h1>
+
+                        {{ datos.anios }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <h4>
+
+        Actividades recientes
+
+    </h4>
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+
+                <th>Fecha</th>
+
+                <th>Actividad</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for actividad in datos.recientes %}
+
+            <tr>
+
+                <td>
+
+                    {{ actividad.fecha.strftime("%d/%m/%Y") }}
+
+                </td>
+
+                <td>
+
+                    {{ actividad.nombre }}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

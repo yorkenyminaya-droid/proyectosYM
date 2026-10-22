@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-body text-center">
+
+        <h2 class="fw-bold text-success">
+
+            <i class="bi bi-images"></i>
+
+            Galería Institucional
+
+        </h2>
+
+        <p class="text-secondary mb-0">
+
+            Consulte y administre las actividades registradas en el Sistema de Gestión de Archivo Fotográfico Institucional.
+
+        </p>
+
+    </div>
+
+</div>
+
+<div class="card shadow border-0 h-100">
+
+    <div class="card-body">
+
+    <form method="GET"
+      action="{{ url_for('gallery.galeria') }}"
+      class="mb-4">
+
+    <div class="row g-2">
+
+        <!-- Buscar -->
+        <div class="col-md-5">
+
+            <input
+                type="text"
+                class="form-control"
+                name="buscar"
+                placeholder="Buscar actividad..."
+                value="{{ buscar }}">
+
+        </div>
+
+        <!-- Año -->
+        <div class="col-md-2">
+
+            <select
+                class="form-select"
+                name="anio">
+
+                <option value="">Todos los años</option>
+
+                {% for a in anios %}
+
+                <option
+                    value="{{ a }}"
+                    {% if anio|string == a|string %}selected{% endif %}>
+
+                    {{ a }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+        <!-- Mes -->
+        <div class="col-md-2">
+
+            <select
+                class="form-select"
+                name="mes">
+
+                <option value="">Todos los meses</option>
+
+                <option value="1" {% if mes == "1" %}selected{% endif %}>Enero</option>
+                <option value="2" {% if mes == "1" %}selected{% endif %}>Febrero</option>
+                <option value="3" {% if mes == "1" %}selected{% endif %}>Marzo</option>
+                <option value="4" {% if mes == "1" %}selected{% endif %}>Abril</option>
+                <option value="5" {% if mes == "1" %}selected{% endif %}>Mayo</option>
+                <option value="6" {% if mes == "1" %}selected{% endif %}>Junio</option>
+                <option value="7" {% if mes == "1" %}selected{% endif %}>Julio</option>
+                <option value="8" {% if mes == "1" %}selected{% endif %}>Agosto</option>
+                <option value="9" {% if mes == "1" %}selected{% endif %}>Septiembre</option>
+                <option value="10" {% if mes == "1" %}selected{% endif %}>Octubre</option>
+                <option value="11" {% if mes == "1" %}selected{% endif %}>Noviembre</option>
+                <option value="12" {% if mes == "1" %}selected{% endif %}>Diciembre</option>
+
+            </select>
+
+        </div>
+
+        <!-- Buscar -->
+        <div class="col-md-2">
+
+            <button
+                class="btn btn-primary w-100"
+                type="submit">
+
+                🔍 Buscar
+
+            </button>
+
+        </div>
+
+        <!-- Limpiar -->
+        <div class="col-md-1">
+
+            <a
+    href="{{ url_for('gallery.galeria') }}"
+    class="btn btn-secondary w-100">
+
+    Limpiar
+
+</a>
+
+        </div>
+
+    </div>
+
+</form>
+
+    </div>
+
+</div>
+
+    <div class="row">
+
+        {% for actividad in actividades %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow">
+                {% if actividad.portada %}
+
+            <img
+                src="{{ url_for('foto.ver_foto', id=actividad.fotos[0].id) }}"
+                class="card-img-top"
+                style="height:250px; object-fit:cover;"
+                >
+
+                {% endif %}
+
+                <div class="card-body">
+
+                        <h5 class="fw-bold text-success">
+
+                            {{ actividad.nombre }}
+
+                        </h5>
+
+                    <p class="text-muted mb-1">
+
+                        <i class="bi bi-calendar-event"></i>
+
+                        {{ actividad.fecha.strftime("%d/%m/%Y") }}
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        <i class="bi bi-camera-fill"></i>
+
+                         {{ actividad.fotos|length }} fotografías
+
+                    </p>
+
+                    <div class="d-grid gap-2 mt-3">
+
+    <a
+        href="{{ url_for('gallery.album', id=actividad.id) }}"
+        class="btn btn-sm btn-outline-success">
+
+        <i class="bi bi-eye"></i>
+        Ver álbum
+
+    </a>
+
+    <a
+        href="{{ url_for('gallery.descargar', id=actividad.id) }}"
+        class="btn btn-sm btn-outline-secondary">
+
+        <i class="bi bi-download"></i>
+        Descargar
+
+    </a>
+
+    <a
+        href="{{ url_for('gallery.editar', id=actividad.id) }}"
+        class="btn btn-sm btn-outline-secondary">
+
+        <i class="bi bi-pencil"></i>
+        Editar
+
+    </a>
+
+    <a
+        href="{{ url_for('gallery.eliminar', id=actividad.id) }}"
+        class="btn btn-sm btn-outline-danger"
+        onclick="return confirm('¿Está seguro de eliminar esta actividad y todas sus fotografías?');">
+
+        <i class="bi bi-trash"></i>
+        Eliminar
+
+    </a>
+
+</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

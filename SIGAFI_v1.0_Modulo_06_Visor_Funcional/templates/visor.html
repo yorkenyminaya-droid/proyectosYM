@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-between mb-3">
+
+    <div>
+
+        {% if anterior %}
+
+        <a
+            href="{{ url_for('foto.visor', id=anterior.id) }}"
+            class="btn btn-outline-primary">
+
+            ← Anterior
+
+        </a>
+
+        {% endif %}
+
+    </div>
+
+    <div>
+
+        {% if siguiente %}
+
+        <a
+            href="{{ url_for('foto.visor', id=siguiente.id) }}"
+            class="btn btn-outline-primary">
+
+            Siguiente →
+
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</div>
+<div class="container mt-4">
+
+    <a href="{{ url_for('gallery.album', id=foto.actividad_id) }}"
+       class="btn btn-secondary mb-3">
+
+       
+
+        ← Volver al álbum
+
+    </a>
+
+    <div class="card shadow">
+
+        <div class="card-body text-center">
+
+            <img
+                src="{{ url_for('foto.ver_foto', id=foto.id) }}"
+                class="img-fluid rounded">
+
+            <hr>
+
+            <h4>{{ foto.nombre }}</h4>
+
+            <div class="mt-3">
+
+    <a
+        href="{{ url_for('foto.ver_foto', id=foto.id) }}"
+        download="{{ foto.nombre }}"
+        class="btn btn-success">
+
+        <i class="bi bi-download"></i>
+
+        Descargar fotografía
+
+    </a>
+
+</div>
+
+<hr>
+
+<div class="text-start">
+
+    <p>
+        <strong>Nombre:</strong>
+        {{ foto.nombre }}
+    </p>
+
+    <p>
+        <strong>Resolución:</strong>
+        {{ foto.ancho }} × {{ foto.alto }} px
+    </p>
+
+    <p>
+        <strong>Tamaño:</strong>
+        {{ "%.2f"|format(foto.tamano / 1024 / 1024) }} MB
+    </p>
+
+</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

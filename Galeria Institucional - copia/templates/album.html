@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container mt-4">
+
+    <h2>{{ actividad.nombre }}</h2>
+
+    <p class="text-muted">
+        {{ actividad.fecha.strftime("%d/%m/%Y") }}
+    </p>
+
+    <hr>
+
+    <div class="row">
+
+        {% for foto in fotos %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+            <div class="card shadow-sm">
+
+                <a href="{{ url_for('foto.visor', id=foto.id) }}">
+
+                <img
+                    src="{{ url_for('foto.ver_foto', id=foto.id) }}"
+                    class="card-img-top"
+                    style="height:220px; object-fit:cover; cursor:pointer;">
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+
+    <div class="card shadow border-0">
+
+        <div class="card-body text-center">
+
+            <img
+                src="{{ url_for('static', filename='img/logo.png') }}"
+                style="width:140px;"
+                class="mb-4">
+
+            <h2 class="text-success fw-bold">
+
+                Sistema de Gestión de Archivo Fotográfico Institucional
+
+            </h2>
+
+            <h4 class="text-secondary">
+
+                SIGAFI
+
+            </h4>
+
+            <hr>
+
+            <p>
+
+                Instituto Superior Especializado de Estudios Penitenciarios
+
+            </p>
+
+            <h5 class="fw-bold">
+
+                ISEEPENC
+
+            </h5>
+
+            <br>
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-8">
+
+                    <table class="table table-bordered">
+
+                        <tr>
+
+                            <th>Versión</th>
+
+                            <td>1.0</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Año</th>
+
+                            <td>2026</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Plataforma</th>
+
+                            <td>Python + Flask</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Base de datos</th>
+
+                            <td>SQLite</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="alert alert-success mt-4">
+
+                <strong>Finalidad del sistema</strong>
+
+                <br><br>
+
+                SIGAFI permite registrar, organizar, consultar y preservar el
+                archivo fotográfico institucional del Instituto Superior
+                Especializado de Estudios Penitenciarios (ISEEPENC),
+                facilitando la administración de las actividades académicas,
+                protocolares e institucionales.
+
+            </div>
+
+            <p class="text-muted mt-4">
+
+                © 2026<br>
+
+                Instituto Superior Especializado de Estudios Penitenciarios
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
