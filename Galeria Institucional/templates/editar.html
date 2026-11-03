@@ -1,40 +1,147 @@
+
 {% extends "base.html" %}
 
 {% block contenido %}
 
 <div class="container mt-4">
 
-    <h2>Editar actividad</h2>
+    <h2>Editar álbum</h2>
 
     <hr>
 
-    <form method="POST">
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <!-- NOMBRE -->
 
         <div class="mb-3">
 
-            <label>Nombre</label>
+            <label class="form-label">
+                Nombre del álbum
+            </label>
 
             <input
-    type="text"
-    class="form-control"
-    name="nombre"
-    value="{{ actividad.nombre }}"
-    required>
+                type="text"
+                class="form-control"
+                name="nombre"
+                value="{{ actividad.nombre }}"
+                required>
 
         </div>
 
-        <div class="mb-3">
+        <!-- FECHA -->
 
-            <label>Fecha</label>
+        <div class="mb-4">
+
+            <label class="form-label">
+                Fecha
+            </label>
 
             <input
                 type="date"
                 class="form-control"
-                value="{{ actividad.fecha }}">
+                name="fecha"
+                value="{{ actividad.fecha.strftime('%Y-%m-%d') }}"
+                required>
 
         </div>
 
+        <hr>
+
+        <!-- FOTOGRAFIAS EXISTENTES -->
+
+        <h4 class="mb-3">
+            Fotografías actuales
+        </h4>
+
+        {% if actividad.fotos %}
+
+        <div class="row">
+
+            {% for foto in actividad.fotos %}
+
+            <div class="col-md-3 col-sm-6 mb-4">
+
+                <div class="card h-100">
+
+                    <img
+                        src="{{ url_for('gallery.foto_edicion', foto_id=foto.id) }}"
+                        class="card-img-top"
+                        style="height:180px; object-fit:cover;"
+                        alt="{{ foto.nombre }}">
+
+                    <div class="card-body">
+
+                        <p class="small text-truncate">
+                            {{ foto.nombre }}
+                        </p>
+
+                        <div class="form-check">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                name="eliminar_fotos"
+                                value="{{ foto.id }}"
+                                id="foto{{ foto.id }}">
+
+                            <label
+                                class="form-check-label text-danger"
+                                for="foto{{ foto.id }}">
+
+                                Eliminar fotografía
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-info">
+            Este álbum todavía no tiene fotografías.
+        </div>
+
+        {% endif %}
+
+        <hr>
+
+        <!-- AGREGAR FOTOGRAFIAS -->
+
+        <h4 class="mb-3">
+            Agregar nuevas fotografías
+        </h4>
+
+        <div class="mb-4">
+
+            <input
+                type="file"
+                class="form-control"
+                name="fotos_nuevas"
+                accept="image/jpeg,image/png,image/gif,image/webp,image/bmp"
+                multiple>
+
+            <small class="text-muted">
+                Puedes seleccionar varias fotografías al mismo tiempo.
+            </small>
+
+        </div>
+
+        <hr>
+
+        <!-- BOTONES -->
+
         <button
+            type="submit"
             class="btn btn-success">
 
             Guardar cambios
@@ -42,14 +149,14 @@
         </button>
 
         <a
-            href="{{ url_for('gallery.galeria') }}"
+            href="{{ url_for('gallery.album', id=actividad.id) }}"
             class="btn btn-secondary">
 
             Cancelar
 
         </a>
 
-    <form method="POST">
+    </form>
 
 </div>
 
